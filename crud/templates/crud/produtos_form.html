@@ -1,0 +1,23 @@
+{% extends 'base_form.html'%}
+
+{% block 'titulo' %}Formulário de produtos{% endblock %}
+{% block 'cabecalho' %}Cadastro de produtos{% endblock %}
+
+{% block 'conteudo' %}
+<div class="col-8 m-auto pt-3 pb-2 text-center">
+    <form name="form" id="form" action="{% if produto %}{% url 'produtoUpdate' produto.id %} {% else %}{% url 'cria_produtos' %}{% endif %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group mt-4">Nome do produto: {{ form.nome_produto }}</div>
+        <div class="form-group mt-4">Preço do produto: {{ form.preco_produto }}</div>
+        <div class="form-group mt-4">Descrição do produto: {{ form.descricao_produto }}</div>
+        <div class='form-group mt-4'>Categoria ID: {{ form.categoria_id }}</div>
+        <input type="submit" class="btn btn-primary mt-5" value="Cadastrar produto">
+
+    </form>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/produtos" class="btn btn-success">Voltar</a>
+    </div>
+
+
+{% endblock %}

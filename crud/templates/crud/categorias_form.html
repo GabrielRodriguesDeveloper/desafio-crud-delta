@@ -1,0 +1,21 @@
+{% extends 'base_form.html'%}
+
+{% block 'titulo' %}Formulário de categorias{% endblock %}
+{% block 'cabecalho' %}Cadastro de categorias{% endblock %}
+
+{% block 'conteudo' %}
+<div class="col-8 m-auto pt-3 pb-2 text-center">
+    <form name="form" id="form" action="{% url 'cria_categorias' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group mt-4">Nome da categoria: {{ form.nome_categoria }}</div>
+        <div class="form-group mt-4">Descrição da categoria: {{ form.descricao_categoria }}</div>
+        <input type="submit" class="btn btn-primary mt-5" value="Cadastrar categoria">
+
+        <div class="col-8 m-auto pt-3 pb-2 text-center">
+            <a href="/categorias" class="btn btn-success">Voltar</a>
+        </div>
+
+    </form>
+  
+
+{% endblock %}

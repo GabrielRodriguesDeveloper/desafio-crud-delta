@@ -1,0 +1,29 @@
+{% extends 'base_form.html' %}
+
+{% block 'titulo' %}{{produto.nome_produto}}{% endblock %}
+
+{% block 'cabecalho' %}{% endblock %}
+
+{% block 'conteudo' %}
+<div class="col-8 m-auto pt-3 pb-2 text-center">
+    <dl>
+        <dt>ID</dt>
+        <dd>{{ produto.id }}</dd>
+
+        <dt>Nome</dt>
+        <dd>{{ produto.nome_produto }}</dd>
+
+        <dt>Preço</dt>
+        <dd>{{ produto.preco_produto }}</dd>
+        
+        <dt>Descrição</dt>
+        <dd>{{ produto.descricao_produto }}</dd>
+
+        <dt>ID da categoria</dt>
+        <dd>{{ produto.categoria_id.id }}</dd>
+    </dl>
+
+    <a href="/produtos" class="btn btn-success">Voltar</a>
+
+</div>
+{% endblock %}
