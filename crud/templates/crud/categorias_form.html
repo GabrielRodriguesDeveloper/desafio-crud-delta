@@ -5,7 +5,7 @@
 
 {% block 'conteudo' %}
 <div class="col-8 m-auto pt-3 pb-2 text-center">
-    <form name="form" id="form" action="{% url 'cria_categorias' %}" method="POST">
+    <form name="form" id="form" action="{% if categoria %}{% url 'categoriaUpdate' categoria.id %} {% else %}{% url 'cria_produtos' %}{% endif %}" method="POST">
         {% csrf_token %}
         <div class="form-group mt-4">Nome da categoria: {{ form.nome_categoria }}</div>
         <div class="form-group mt-4">Descrição da categoria: {{ form.descricao_categoria }}</div>
